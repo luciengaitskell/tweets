@@ -1,5 +1,12 @@
+""" Get all historic tweets from user. """
+
 import GetOldTweets3 as got
 
-tweetCriteria = got.manager.TweetCriteria().setUsername("lzdarkmatter").setMaxTweets(2)
-tweet = got.manager.TweetManager.getTweets(tweetCriteria)[0]
-print(tweet.text)
+from config import *
+
+tweetCriteria = got.manager.TweetCriteria().setUsername(USER).setMaxTweets(NUM_TWEETS)
+
+tweets = got.manager.TweetManager.getTweets(tweetCriteria)
+
+for t in tweets:
+    print(t.text)
